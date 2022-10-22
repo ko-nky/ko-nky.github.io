@@ -16,10 +16,10 @@ primitives.add(baseTileset);
 primitives.add(colTileset);
 viewer.zoomTo(baseTileset, new Cesium.HeadingPitchRange(0, -0.5, 0));
 
-Sandcastle.addToggleButton("Show hatmap", true, function (
+Sandcastle.addToggleButton("Show heatmap", true, function (
   checked
 ) {
-	var picking = checked;
+  var picking = checked;
     if (picking){
       baseTileset.show = checked;
       colTileset.show = checked;
