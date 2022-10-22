@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>cesium</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta name="description" content="Use Viewer to start building new applications or easily embed Cesium into existing applications.">
+    <meta name="cesium-sandcastle-labels" content="Beginner, Showcases">
+    <title>Cesium Demo</title>
+    <script type="text/javascript" src="../Sandcastle-header.js"></script>
+    <script src="../CesiumUnminified/Cesium.js"></script>
+    <script>window.CESIUM_BASE_URL = "../CesiumUnminified/";</script>";
   </head>
-  <body>
-    <div id="cesiumContainer" class="fullSize"></div>
-    <div id="toolbar"></div>
-    <div class="creditContainer"></div>
+  <body
+    class="sandcastle-loading"
+    data-sandcastle-bucket="bucket-requirejs.html"
+  >
+";
+  
+  
     <style>
-    .creditContainer {
-        width: 77px;
-        height: 231px;
-        position: fixed;
-        z-index: 99999;
-        background: url(/images/col_label.gif) 100% 100% no-repeat;
-        background-size: cover;
-        bottom: 120px;
-    }
+      @import url(../templates/bucket.css);
     </style>
-    <script src = "https://sandcastle.cesium.com/Sandcastle-header.js"></script>
-    <script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>
-    <script src="main.js"></script>
-  </body>
+    <div id="cesiumContainer" class="fullSize"></div>
+    <div id="loadingOverlay"><h1>Loading...</h1></div>
+    <div id="toolbar"></div>
+    <script id="cesium_sandcastle_script">
+window.startup = function (Cesium) {
+    'use strict';
+//Sandcastle_Begin
+const viewer = new Cesium.Viewer("cesiumContainer");
+//Sandcastle_End
+    Sandcastle.finishedLoading();
+};
+if (typeof Cesium !== 'undefined') {
+    window.startupCalled = true;
+    window.startup(Cesium);
+}
+</script>
+</body>
 </html>
