@@ -9,5 +9,23 @@ const primitives = scene.primitives;
 const baseTileset = new Cesium.Cesium3DTileset({
   url: Cesium.IonResource.fromAssetId(1363490)
 });
+const colTileset = new Cesium.Cesium3DTileset({
+  url: Cesium.IonResource.fromAssetId(1363491)
+});
 primitives.add(baseTileset);
+primitives.add(colTileset);
 viewer.zoomTo(baseTileset, new Cesium.HeadingPitchRange(0, -0.5, 0));
+
+Sandcastle.addToggleButton("Show heatmap", true, function (
+  checked
+) {
+  var picking = checked;
+    if (picking){
+      baseTileset.show = checked;
+      colTileset.show = checked;
+    } else {
+      baseTileset.show = !checked;
+      colTileset.show = checked;
+   }
+});
+
