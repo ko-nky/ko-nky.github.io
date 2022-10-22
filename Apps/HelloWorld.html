@@ -1,34 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <!-- Use correct character set. -->
-    <meta charset="utf-8" />
-    <!-- Tell IE to use the latest, best version. -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
-    />
-    <title>Hello World!</title>
-    <script src="../Build/CesiumUnminified/Cesium.js"></script>
-    <style>
-      @import url(../Build/CesiumUnminified//Widgets/widgets.css);
-      html,
-      body,
-      #cesiumContainer {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-    </style>
+    <meta charset="utf-8">
+    <title>cesium</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="node_modules/cesium/Build/Cesium/Widgets/widgets.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="cesiumContainer"></div>
-    <script>
-      const viewer = new Cesium.Viewer("cesiumContainer");
-    </script>
+    <div id="cesiumContainer" class="fullSize"></div>
+    <div id="toolbar"></div>
+    <div class="creditContainer"></div>
+    <style>
+    .creditContainer {
+        width: 77px;
+        height: 231px;
+        position: fixed;
+        z-index: 99999;
+        background: url(col_label.gif) 100% 100% no-repeat;
+        background-size: cover;
+        bottom: 120px;
+    }
+    </style>
+    <script src = "https://sandcastle.cesium.com/Sandcastle-header.js"></script>
+<!--    <script type="text/javascript" src="Sandcastle-header.js"></script> -->
+    <script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
